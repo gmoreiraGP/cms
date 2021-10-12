@@ -1,0 +1,20 @@
+version: "3.1"
+
+services:
+  db:
+    image: postgres:latest
+    volumes:
+      - ./data/database:/var/lib/postgresql/data
+    restart: always
+    environment:
+      POSTGRES_USER: gmoreira
+      POSTGRES_PASSWORD: gmoreira
+      POSTGRES_DB: cmsdb
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8083:8080
